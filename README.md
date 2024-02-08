@@ -8,6 +8,7 @@ To statically link this into your program, you will need to compile the followin
 ```
 LAPACK_FILTER_OUT := $(LAPACK_PATH)/F2CLIBS/libf2c/arithchk.c
 LAPACK_FILTER_OUT += $(LAPACK_PATH)/F2CLIBS/libf2c/main.c
+LAPACK_FILTER_OUT += $(LAPACK_PATH)/F2CLIBS/libf2c/uninit.c
 LAPACK_FILTER_OUT += $(LAPACK_PATH)/SRC/xerbla.c
 LAPACK_FILTER_OUT += $(LAPACK_PATH)/SRC/xerbla_array.c
 
@@ -35,5 +36,7 @@ Be sure to set up your compiler and linker to remove unused symbols/code, otherw
 CFLAGS += -ffunction-sections -fdata-sections
 LDFLAGS += -Wl,-gc-sections
 ```
+
+Good luck with the compiler warnings...
 
 For more options and infos, check documentation pdfs and readmes.

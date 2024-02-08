@@ -16,6 +16,9 @@
 /* Subroutine */ int xerbla_array__(char *srname_array__, integer *
 	srname_len__, integer *info, ftnlen srname_array_len)
 {
+    return 0;
+}
+#if false
     /* System generated locals */
     integer i__1, i__2, i__3;
 
@@ -100,3 +103,4 @@
     xerbla_(srname, info);
     return 0;
 } /* xerbla_array__ */
+#endif // false

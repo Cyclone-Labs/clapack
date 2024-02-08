@@ -19,6 +19,9 @@ static integer c__1 = 1;
 
 /* Subroutine */ int xerbla_(char *srname, integer *info)
 {
+    return 0;
+}
+#if false
     /* Format strings */
     static char fmt_9999[] = "(\002 ** On entry to \002,a,\002 parameter num"
 	    "ber \002,i2,\002 had \002,\002an illegal value\002)";
@@ -74,3 +77,5 @@ static integer c__1 = 1;
 
     return 0;
 } /* xerbla_ */
+
+#endif  // false
