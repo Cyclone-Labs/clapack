@@ -25,27 +25,27 @@ doublereal slamch_(char *cmach)
     static logical first = TRUE_;
 
     /* System generated locals */
-    integer i__1;
+    //integer i__1;
     real ret_val;
 
     /* Builtin functions */
-    double pow_ri(real *, integer *);
+    //double pow_ri(real *, integer *);
 
     /* Local variables */
     static real t;
-    integer it;
+    //integer it;
     static real rnd, eps, base;
-    integer beta;
+    //integer beta;
     static real emin, prec, emax;
-    integer imin, imax;
-    logical lrnd;
+    //integer imin, imax;
+    //logical lrnd;
     static real rmin, rmax;
     real rmach;
-    extern logical lsame_(char *, char *);
-    real small;
+    //extern logical lsame_(char *, char *);
+    //real small;
     static real sfmin;
-    extern /* Subroutine */ int slamc2_(integer *, integer *, logical *, real 
-	    *, integer *, real *, integer *, real *);
+    //extern /* Subroutine */ int slamc2_(integer *, integer *, logical *, real 
+	   // *, integer *, real *, integer *, real *);
 
 
 /*  -- LAPACK auxiliary routine (version 3.2) -- */
@@ -105,32 +105,16 @@ doublereal slamch_(char *cmach)
 /*     .. */
 /*     .. Executable Statements .. */
 
-    if (first) {
-	slamc2_(&beta, &it, &lrnd, &eps, &imin, &rmin, &imax, &rmax);
-	base = (real) beta;
-	t = (real) it;
-	if (lrnd) {
-	    rnd = 1.f;
-	    i__1 = 1 - it;
-	    eps = pow_ri(&base, &i__1) / 2;
-	} else {
-	    rnd = 0.f;
-	    i__1 = 1 - it;
-	    eps = pow_ri(&base, &i__1);
-	}
-	prec = eps * base;
-	emin = (real) imin;
-	emax = (real) imax;
-	sfmin = rmin;
-	small = 1.f / rmax;
-	if (small >= sfmin) {
-
-/*           Use SMALL plus a bit, to avoid the possibility of rounding */
-/*           causing overflow when computing  1/sfmin. */
-
-	    sfmin = small * (eps + 1.f);
-	}
-    }
+    eps = 5.97e-8f;
+    sfmin = 1.20e-7f;
+    base = 2;
+    prec = eps;
+    rmin = sfmin;
+    t = 10; // never called
+    rnd = eps;
+    emin = -127;
+    emax = 127;
+    rmax = 3.40282e38f;
 
     if (lsame_(cmach, "E")) {
 	rmach = eps;
