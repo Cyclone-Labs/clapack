@@ -258,7 +258,10 @@ rd_F(ufloat *p, int w, int d, ftnlen len)
 		}
 	while(ch == ' ') {
 blankdrop:
-		if (!w--) goto zero; GET(ch); }
+		if (!w--) 
+			goto zero;
+		GET(ch);
+		}
 	while(ch == '0')
 		{ if (!w--) goto zero; GET(ch); }
 	if (ch == ' ' && f__cblank)
